@@ -1,50 +1,67 @@
-body { font-family: Arial, sans-serif; margin: 0; color: white; }
+body { font-family: 'Segoe UI', sans-serif; background: #0c0c0c; color: white; margin: 0; }
 
-div.background {
-    background-image: url("wp13586229.jpg");
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 50px;
+.background { 
+    height: 100vh; 
+    display: flex; 
+    flex-direction: column; /* This keeps header on top of the box */
+    justify-content: center; 
+    align-items: center; 
+    background-color: black;
 }
 
-h1.TG { color: darkgray; }
+.TG { color: #888; font-size: 48px; margin-bottom: 30px; }
 
-.container { width: 320px; position: relative; }
-input[type="checkbox"] { display: none; }
+.container { width: 360px; position: relative; }
 
-.form {
-    display: flex;
-    flex-direction: column;
+/* THE FORM BOX - Keeping it stacked! */
+.form { 
+    background: #1a1a1a; 
+    padding: 40px; 
+    border-radius: 20px; 
+    display: flex; 
+    flex-direction: column; /* Force elements to stack vertically */
+    align-items: center; 
     gap: 15px;
-    background: rgba(30, 30, 30, 0.95);
-    padding: 30px;
-    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.8);
 }
 
-.profile-icon {
-    width: 70px; height: 70px;
-    background: #444; border: 2px solid #4caf50;
-    border-radius: 50%; display: flex;
-    justify-content: center; align-items: center;
-    font-size: 40px; margin: 0 auto;
+.form-title { margin: 0; font-size: 24px; align-self: flex-start; }
+
+/* ICONS */
+.profile-icon { 
+    width: 80px; height: 80px; background: #333; 
+    border: 2px solid #4caf50; border-radius: 50%; 
+    display: flex; justify-content: center; align-items: center; font-size: 40px;
+    margin-bottom: 10px;
 }
 
-/* Toggle Views */
+/* INPUTS */
+.input-group { width: 100%; position: relative; }
+input { 
+    width: 100%; padding: 12px; background: #333; 
+    border: none; border-radius: 6px; color: white; 
+    box-sizing: border-box; /* Crucial: keeps padding inside the width */
+}
+.eye { position: absolute; right: 10px; top: 10px; color: #888; cursor: pointer; }
+
+/* BUTTONS */
+button { 
+    width: 100%; padding: 12px; background: #4caf50; 
+    color: white; border: none; border-radius: 6px; 
+    font-weight: bold; cursor: pointer; font-size: 16px;
+}
+
+.switch-link { font-size: 13px; color: #888; cursor: pointer; margin-top: 10px; }
+
+/* HIDDEN LOGIC */
+#toggle { display: none; }
 .register { display: none; }
 #toggle:checked ~ .login { display: none; }
 #toggle:checked ~ .register { display: flex; }
+.hidden { display: none; }
 
-input, button { padding: 12px; border: none; border-radius: 5px; }
-input { background: #444; color: white; }
-button { background: #4caf50; color: white; cursor: pointer; font-weight: bold; }
-
-.password-container { position: relative; width: 100%; }
-.password-container input { width: 100%; box-sizing: border-box; padding-right: 40px; }
-.eye-icon { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; }
-
-label { font-size: 12px; color: #aaa; cursor: pointer; text-align: center; }
-
+/* NAVBAR FOR DASHBOARD */
+.navbar { position: fixed; top: 20px; right: 20px; }
+.profile-circle { width: 45px; height: 45px; background: #333; border: 2px solid #4caf50; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; }
+.dropdown { position: absolute; right: 0; top: 55px; background: #1a1a1a; border: 1px solid #333; display: none; width: 120px; border-radius: 8px; }
+.dropdown button { background: none; border-bottom: 1px solid #333; border-radius: 0; }
